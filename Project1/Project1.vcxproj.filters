@@ -38,4 +38,9 @@
   <ItemGroup>
     <Font Include="lazy.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\..\SDL2_image-2.0.4\lib\x86\SDL2_image.lib">
+      <Filter>Header Files</Filter>
+    </Library>
+  </ItemGroup>
 </Project>
