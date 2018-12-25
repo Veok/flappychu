@@ -15,21 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\board.bmp" />
-    <Image Include="..\..\birdchu.bmp" />
-    <Image Include="..\..\pipe2.bmp" />
-    <Image Include="..\..\pipe.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Bird.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="lazy.ttf" />
+    <ClInclude Include="libs\SDL_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -41,5 +35,93 @@
     <ClCompile Include="LTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libs\SDL2.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
+    <Library Include="libs\SDL2_image.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
+    <Library Include="libs\SDL2_ttf.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
+    <Library Include="libs\SDL2main.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
+    <Library Include="libs\SDL2test.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libs\libfreetype-6.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="libs\libjpeg-9.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="libs\libpng16-16.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="libs\libtiff-5.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="libs\libwebp-7.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="libs\SDL2.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="libs\SDL2_image.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="libs\SDL2_ttf.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="libs\zlib1.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="libs\LICENSE.freetype.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="libs\LICENSE.jpeg.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="libs\LICENSE.png.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="libs\LICENSE.tiff.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="libs\LICENSE.webp.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="libs\LICENSE.zlib.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="imgs\birdchu.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\board.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\pipe.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\endgame.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\pipe2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="libs\lazy.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>

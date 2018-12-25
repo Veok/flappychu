@@ -12,9 +12,6 @@ const int SCREEN_WIDTH = 538;
 const int SCREEN_HEIGHT = 480;
 
 
-//The bird that will move around on the screen
-
-
 //Starts up SDL and creates window
 bool init();
 
@@ -144,9 +141,9 @@ bool loadMedia()
 	//Loading success flag
 	bool success = true;
 	//Load press texture
-	board.loadFromFile("board.bmp", gRenderer);
-	endgame.loadFromFile("endgame.bmp", gRenderer);
-	if (!gbirdTexture.loadFromFile("birdchu.bmp", gRenderer))
+	board.loadFromFile("imgs/board.bmp", gRenderer);
+	endgame.loadFromFile("imgs/endgame.bmp", gRenderer);
+	if (!gbirdTexture.loadFromFile("imgs/birdchu.bmp", gRenderer))
 	{
 		printf("Failed to load bird texture!\n");
 		success = false;
@@ -250,9 +247,9 @@ int main(int argc, char* args[])
 			wall1.h = 200;
 
 			wall2.x = 538;
-			wall2.y = 440;
+			wall2.y = 350;
 			wall2.w = 40;
-			wall2.h = 200;
+			wall2.h = 130;
 
 			//While application is running
 			while (!quit)
@@ -327,7 +324,7 @@ int main(int argc, char* args[])
 							wall1.h = 200;
 
 							wall2.x = 538;
-							wall2.y = 440;
+							wall2.y = 350;
 							wall2.w = 40;
 							wall2.h = 200;
 							gameReset = true;

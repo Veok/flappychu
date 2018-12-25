@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\SDL2_ttf-2.0.14\include;C:\SDL2_image-2.0.4\include;C:\SDL2-2.0.9\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDL2_ttf-2.0.14\lib;C:\SDL2_image-2.0.4\lib;C:\SDL2-2.0.9\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\trebb\Desktop\Project1\Project1\libs;C:\SDL2_ttf-2.0.14\include;C:\SDL2_image-2.0.4\include;C:\SDL2-2.0.9\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\trebb\Desktop\Project1\Project1\libs;C:\SDL2_ttf-2.0.14\lib;C:\SDL2_image-2.0.4\lib;C:\SDL2-2.0.9\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -82,7 +82,7 @@
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\trebb\Desktop\Project1;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\trebb\Desktop\Project1\Project1\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -119,22 +119,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Image Include="..\..\birdchu.bmp" />
-    <Image Include="..\..\board.bmp" />
-    <Image Include="..\..\pipe.bmp" />
-    <Image Include="..\..\pipe2.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Bird.h" />
+    <ClInclude Include="libs\SDL_image.h" />
     <ClInclude Include="LTexture.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="lazy.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="LTexture.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libs\SDL2.lib" />
+    <Library Include="libs\SDL2main.lib" />
+    <Library Include="libs\SDL2test.lib" />
+    <Library Include="libs\SDL2_image.lib" />
+    <Library Include="libs\SDL2_ttf.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libs\libfreetype-6.dll" />
+    <None Include="libs\libjpeg-9.dll" />
+    <None Include="libs\libpng16-16.dll" />
+    <None Include="libs\libtiff-5.dll" />
+    <None Include="libs\libwebp-7.dll" />
+    <None Include="libs\SDL2.dll" />
+    <None Include="libs\SDL2_image.dll" />
+    <None Include="libs\SDL2_ttf.dll" />
+    <None Include="libs\zlib1.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="libs\LICENSE.freetype.txt" />
+    <Text Include="libs\LICENSE.jpeg.txt" />
+    <Text Include="libs\LICENSE.png.txt" />
+    <Text Include="libs\LICENSE.tiff.txt" />
+    <Text Include="libs\LICENSE.webp.txt" />
+    <Text Include="libs\LICENSE.zlib.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="libs\lazy.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="imgs\birdchu.bmp" />
+    <Image Include="imgs\board.bmp" />
+    <Image Include="imgs\endgame.bmp" />
+    <Image Include="imgs\pipe.bmp" />
+    <Image Include="imgs\pipe2.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
