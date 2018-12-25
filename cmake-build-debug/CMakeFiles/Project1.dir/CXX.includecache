@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././SDL_image.h
+SDL.h
+.././SDL.h
+SDL_version.h
+.././SDL_version.h
+begin_code.h
+.././begin_code.h
+close_code.h
+.././close_code.h
+
+C:/Users/trebb/Desktop/Project1/Project1/Bird.h
+
+C:/Users/trebb/Desktop/Project1/Project1/Main.cpp
+SDL.h
+-
+stdio.h
+-
+SDL_image.h
+-
+SDL_ttf.h
+-
+Bird.h
+C:/Users/trebb/Desktop/Project1/Project1/Bird.h
+Texture.h
+C:/Users/trebb/Desktop/Project1/Project1/Texture.h
+
+C:/Users/trebb/Desktop/Project1/Project1/Texture.h
+

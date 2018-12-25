@@ -122,9 +122,6 @@
     <None Include="\\gda-nas\s13784\windows\desktop\SDL2-2.0.9\lib\x86\SDL2.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\01_hello_SDL.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="..\..\birdchu.bmp" />
     <Image Include="..\..\board.bmp" />
     <Image Include="..\..\pipe.bmp" />
@@ -138,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\..\..\..\SDL2_image-2.0.4\lib\x86\SDL2_image.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

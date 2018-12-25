@@ -20,11 +20,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\01_hello_SDL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="..\..\board.bmp" />
     <Image Include="..\..\birdchu.bmp" />
     <Image Include="..\..\pipe2.bmp" />
@@ -42,5 +37,10 @@
     <Library Include="..\..\..\..\..\SDL2_image-2.0.4\lib\x86\SDL2_image.lib">
       <Filter>Header Files</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
