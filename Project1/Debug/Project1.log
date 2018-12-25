@@ -1,2 +1,3 @@
 ﻿  01_hello_SDL.cpp
+c:\users\trebb\desktop\01_hello_sdl.cpp(531): warning C4101: 'wall2': unreferenced local variable
   Project1.vcxproj -> C:\Users\trebb\Desktop\Project1\Debug\Project1.exe
