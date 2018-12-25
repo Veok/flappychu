@@ -119,24 +119,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="\\gda-nas\s13784\windows\desktop\SDL2-2.0.9\lib\x86\SDL2.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="..\..\birdchu.bmp" />
     <Image Include="..\..\board.bmp" />
     <Image Include="..\..\pipe.bmp" />
     <Image Include="..\..\pipe2.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\SDL_image.h" />
+    <ClInclude Include="Bird.h" />
+    <ClInclude Include="LTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="lazy.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\..\..\SDL2_image-2.0.4\lib\x86\SDL2_image.lib" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="Bird.cpp" />
+    <ClCompile Include="LTexture.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

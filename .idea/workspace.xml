@@ -12,32 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90c5d378-91ef-4334-b7ee-5465a06f7ded" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Project1/Bird.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Bird.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Collision.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Collision.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Texture.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project1/Texture.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Project1/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Project1/v15/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Project1/v15/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Project1/v15/Browse.VC.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Project1/v15/ipch/AutoPCH/a99c51f1d47354d9/SOURCE.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Project1/v15/ipch/AutoPCH/a99c51f1d47354d9/SOURCE.ipch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Debug/Project1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/Project1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Debug/Project1.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/Project1.ilk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Debug/Project1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/Project1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/01_hello_SDL.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/Project1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/Project1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/CL.command.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/CL.read.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/CL.write.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/link.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/link.command.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/link.read.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/Project1.tlog/link.write.1.tlog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/Source.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/Source.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/vc141.idb" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/vc141.idb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Debug/vc141.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Debug/vc141.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Project1.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Project1.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/Project1.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/Project1.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project1.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project1.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project1.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project1.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project1.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,71 +34,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Project1/Main.cpp">
+        <entry file="file://$PROJECT_DIR$/Project1/Source.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-407">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
+            <state relative-caret-position="-7157">
+              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project1/Collision.h">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project1/Collision.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-              <folding>
-                <element signature="e#42#58#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project1/Texture.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project1/Texture.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
-              <folding>
-                <element signature="e#42#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project1/Bird.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project1/Bird.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#42#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,7 +92,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="1294" />
     <option name="height" value="1047" />
@@ -182,6 +102,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,7 +119,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -245,20 +165,20 @@
       <workItem from="1545743593227" duration="1370000" />
       <workItem from="1545755826238" duration="146000" />
       <workItem from="1545755973485" duration="2051000" />
+      <workItem from="1545762052178" duration="95000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3813000" />
+    <option name="totallyTimeSpent" value="3908000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1294" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29335493" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27836612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" visible="true" weight="0.32932165" />
-      <window_info anchor="bottom" id="CMake" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -270,6 +190,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.492635" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.32932165" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -280,8 +202,52 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Project1.sln">
+    <entry file="file://$PROJECT_DIR$/Project1/Collision.h">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project1/Collision.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#42#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project1/Texture.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project1/Texture.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1989">
+          <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
+          <folding>
+            <element signature="e#42#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project1/Bird.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project1/Bird.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#42#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -297,57 +263,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project1/Collision.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project1/Collision.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#42#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project1/Bird.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#42#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project1/Bird.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project1/Texture.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project1/Texture.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
-          <folding>
-            <element signature="e#42#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Project1/Main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-407">
+        <state relative-caret-position="17">
           <caret line="124" selection-start-line="124" selection-end-line="124" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project1.sln">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project1/Source.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7157">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>

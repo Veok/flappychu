@@ -15,18 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="\\gda-nas\s13784\windows\desktop\SDL2-2.0.9\lib\x86\SDL2.dll">
-      <Filter>Header Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="..\..\board.bmp" />
     <Image Include="..\..\birdchu.bmp" />
     <Image Include="..\..\pipe2.bmp" />
     <Image Include="..\..\pipe.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\SDL_image.h">
+    <ClInclude Include="Bird.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -34,12 +32,13 @@
     <Font Include="lazy.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\..\..\SDL2_image-2.0.4\lib\x86\SDL2_image.lib">
-      <Filter>Header Files</Filter>
-    </Library>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bird.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
