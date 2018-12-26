@@ -21,8 +21,6 @@ bool loadMedia();
 //Frees media and shuts down SDL
 void close();
 
-void generatePipes(Bird bird, SDL_Rect upperPipe, SDL_Rect downPipe);
-
 //Box collision detector
 bool checkCollision(SDL_Rect a, SDL_Rect b);
 
@@ -140,11 +138,20 @@ bool LTexture::loadFromRenderedText(std::string textureText, SDL_Color textColor
 
 bool loadMedia()
 {
-	//Loading success flag
 	bool success = true;
-	//Load press texture
-	board.loadFromFile("imgs/board.bmp", gRenderer);
-	endgame.loadFromFile("imgs/endgame.bmp", gRenderer);
+
+	if (!endgame.loadFromFile("imgs/endgame.bmp", gRenderer))
+	{
+		printf("Failed to load endgame texture!\n");
+		success = false;
+	}
+
+	if (!board.loadFromFile("imgs/board.bmp", gRenderer))
+	{
+		printf("Failed to load board texture!\n");
+		success = false;
+	}
+
 	if (!gbirdTexture.loadFromFile("imgs/birdchu.bmp", gRenderer))
 	{
 		printf("Failed to load bird texture!\n");
@@ -215,27 +222,6 @@ bool checkCollision(SDL_Rect a, SDL_Rect b)
 	return true;
 }
 
-void generatePipes(Bird bird, SDL_Rect upperPipe, SDL_Rect downPipe) {
-	
-
-	if (upperPipe.x == 269) {
-		
-
-		upperPipe.x = 538;
-		upperPipe.y = 0;
-		upperPipe.w = 40;
-		downPipe.x = 538;
-		downPipe.w = 40;
-
-
-		upperPipe.h = 1 + (rand() % static_cast<int>(330 - 1 + 1));
-		downPipe.y = upperPipe.h + 150;
-		downPipe.h = 480 - downPipe.y;
-
-	}
-	upperPipe.x -= 3;
-	downPipe.x -= 3;
-}
 
 int main(int argc, char* args[])
 {
@@ -262,21 +248,9 @@ int main(int argc, char* args[])
 			//The bird that will be moving around on the screen
 			Bird bird;
 
-			//Set the wall
-			SDL_Rect wall1;
-			SDL_Rect wall2;
-			wall1.x = 538;
-			wall1.y = 0;
-			wall1.w = 40;
-			wall1.h = 200;
-
-			wall2.x = 538;
-			wall2.y = 350;
-			wall2.w = 40;
-			wall2.h = 130;
-
 			SDL_Rect upperPipe;
 			SDL_Rect downPipe;
+
 			upperPipe.x = 538;
 			upperPipe.y = 0;
 			upperPipe.w = 40;
@@ -298,26 +272,20 @@ int main(int argc, char* args[])
 					{
 						quit = true;
 					}
-
 					//Handle input for the bird
 					bird.handleEvent(e);
 				}
 
 				if (!gameOver) {
 					//Move the bird and check collision
-					bird.move(wall1, wall2, gameOver, gameReset);
-					//generatePipes(bird, upperPipe, downPipe);
+					bird.move();
 
 					if (upperPipe.x < 0) {
-
-
 						upperPipe.x = 538;
 						upperPipe.y = 0;
 						upperPipe.w = 40;
 						downPipe.x = 538;
 						downPipe.w = 40;
-
-
 						upperPipe.h = 1 + (rand() % static_cast<int>(330 - 1 + 1));
 						downPipe.y = upperPipe.h + 150;
 						downPipe.h = 480 - downPipe.y;
@@ -334,19 +302,13 @@ int main(int argc, char* args[])
 						gameReset = false;
 					}
 
-					//mCollider.y = mPosY;
-
 					//If the Bird collided or went too far up or down
 					if (checkCollision(bird.mCollider, upperPipe))
 					{
-						/*	mPosY -= mVelY;
-						mCollider.y = mPosY;*/
 						gameOver = true;
 					}
 					if (checkCollision(bird.mCollider, downPipe))
 					{
-						/*	mPosY -= mVelY;
-						mCollider.y = mPosY;*/
 						gameOver = true;
 					}
 
@@ -356,7 +318,7 @@ int main(int argc, char* args[])
 				if (gameOver) {
 					gbirdTexture.free();
 					board.free();
-					endgame.render(0, 0, NULL, NULL,NULL, gRenderer);
+					endgame.render(0, 0, NULL, NULL, NULL, gRenderer);
 					upperPipe.w = 0;
 					upperPipe.h = 0;
 					downPipe.w = 0;

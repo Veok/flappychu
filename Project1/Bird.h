@@ -9,8 +9,6 @@
 #pragma once
 class Bird
 {
-
-
 public:
 	//The dimensions of the Bird
 	static const int Bird_WIDTH = 40;
@@ -26,7 +24,7 @@ public:
 	void handleEvent(SDL_Event& e);
 
 	//Moves the Bird and checks collision
-	void move(SDL_Rect& wall, SDL_Rect& wall2, bool gameOver, bool gameReset);
+	void move();
 
 	void reset();
 
