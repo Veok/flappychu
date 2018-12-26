@@ -33,6 +33,8 @@ bool loadFromRenderedText(std::string textureText, SDL_Color textColor);
 
 bool gameOver = false;
 bool gameReset = false;
+int pipeCounter = 0;
+
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
 
@@ -43,6 +45,10 @@ SDL_Renderer* gRenderer = NULL;
 LTexture gbirdTexture;
 LTexture board;
 LTexture endgame;
+
+TTF_Font *gFont = NULL;
+//Rendered texture
+LTexture gTextTexture;
 
 bool init()
 {
@@ -106,7 +112,7 @@ bool LTexture::loadFromRenderedText(std::string textureText, SDL_Color textColor
 	free();
 
 	//Render text surface
-	SDL_Surface* textSurface = TTF_RenderText_Solid(NULL, textureText.c_str(), textColor);
+	SDL_Surface* textSurface = TTF_RenderText_Solid(gFont, textureText.c_str(), textColor);
 	if (textSurface != NULL)
 	{
 		//Create texture from surface pixels
@@ -156,6 +162,24 @@ bool loadMedia()
 	{
 		printf("Failed to load bird texture!\n");
 		success = false;
+	}
+	TTF_Init();
+
+	gFont = TTF_OpenFont("lazy.ttf", 28);
+	if (gFont == NULL)
+	{
+		printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
+		success = false;
+	}
+	else
+	{
+		//Render text
+		SDL_Color textColor = { 100, 25, 100 };
+		if (!gTextTexture.loadFromRenderedText("The quick brown fox jumps over the lazy dog", textColor, gRenderer))
+		{
+			printf("Failed to render text texture!\n");
+			success = false;
+		}
 	}
 
 	return success;
@@ -253,12 +277,12 @@ int main(int argc, char* args[])
 
 			upperPipe.x = 538;
 			upperPipe.y = 0;
-			upperPipe.w = 40;
+			upperPipe.w = 60;
 			upperPipe.h = 200;
 
 			downPipe.x = 538;
 			downPipe.y = 350;
-			downPipe.w = 40;
+			downPipe.w = 60;
 			downPipe.h = 130;
 
 			//While application is running
@@ -277,22 +301,28 @@ int main(int argc, char* args[])
 				}
 
 				if (!gameOver) {
-					//Move the bird and check collision
 					bird.move();
 
-					if (upperPipe.x < 0) {
+					if (upperPipe.x < -60) {
 						upperPipe.x = 538;
 						upperPipe.y = 0;
-						upperPipe.w = 40;
+						upperPipe.w = 60;
 						downPipe.x = 538;
-						downPipe.w = 40;
-						upperPipe.h = 1 + (rand() % static_cast<int>(330 - 1 + 1));
-						downPipe.y = upperPipe.h + 150;
+						downPipe.w = 60;
+						upperPipe.h = 1 + (rand() % static_cast<int>(300 - 1 + 1));
+						downPipe.y = upperPipe.h + 180;
 						downPipe.h = 480 - downPipe.y;
+						pipeCounter -= 1;
 
 					}
-					upperPipe.x -= 3;
-					downPipe.x -= 3;
+					if (pipeCounter % 3 == 0) {
+						upperPipe.x -= 3 - pipeCounter;
+						downPipe.x -= 3 - pipeCounter;
+					}
+					else {
+						upperPipe.x -= 3;
+						downPipe.x -= 3;
+					}
 
 					if (bird.mPosY > 480) {
 						gameOver = true;
@@ -322,8 +352,19 @@ int main(int argc, char* args[])
 					upperPipe.w = 0;
 					upperPipe.h = 0;
 					downPipe.w = 0;
+					pipeCounter = 0;
 					downPipe.h = 0;
 					upperPipe.x = -1;
+
+				
+
+					//Render current frame
+					gTextTexture.render((SCREEN_WIDTH - gTextTexture.getWidth()) / 2, (SCREEN_HEIGHT - gTextTexture.getHeight()) / 2);
+
+					//Update screen
+					SDL_RenderPresent(gRenderer);
+
+
 					if (e.type == SDL_KEYDOWN)
 					{
 						//Adjust the velocity
