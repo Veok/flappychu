@@ -21,6 +21,8 @@ bool loadMedia();
 //Frees media and shuts down SDL
 void close();
 
+void generatePipes(Bird bird, SDL_Rect upperPipe, SDL_Rect downPipe);
+
 //Box collision detector
 bool checkCollision(SDL_Rect a, SDL_Rect b);
 
@@ -213,6 +215,28 @@ bool checkCollision(SDL_Rect a, SDL_Rect b)
 	return true;
 }
 
+void generatePipes(Bird bird, SDL_Rect upperPipe, SDL_Rect downPipe) {
+	
+
+	if (upperPipe.x == 269) {
+		
+
+		upperPipe.x = 538;
+		upperPipe.y = 0;
+		upperPipe.w = 40;
+		downPipe.x = 538;
+		downPipe.w = 40;
+
+
+		upperPipe.h = 1 + (rand() % static_cast<int>(330 - 1 + 1));
+		downPipe.y = upperPipe.h + 150;
+		downPipe.h = 480 - downPipe.y;
+
+	}
+	upperPipe.x -= 3;
+	downPipe.x -= 3;
+}
+
 int main(int argc, char* args[])
 {
 	//Start up SDL and create window
@@ -251,6 +275,18 @@ int main(int argc, char* args[])
 			wall2.w = 40;
 			wall2.h = 130;
 
+			SDL_Rect upperPipe;
+			SDL_Rect downPipe;
+			upperPipe.x = 538;
+			upperPipe.y = 0;
+			upperPipe.w = 40;
+			upperPipe.h = 200;
+
+			downPipe.x = 538;
+			downPipe.y = 350;
+			downPipe.w = 40;
+			downPipe.h = 130;
+
 			//While application is running
 			while (!quit)
 			{
@@ -269,10 +305,26 @@ int main(int argc, char* args[])
 
 				if (!gameOver) {
 					//Move the bird and check collision
-					wall1.x -= 3;
-					wall2.x -= 3;
 					bird.move(wall1, wall2, gameOver, gameReset);
+					//generatePipes(bird, upperPipe, downPipe);
 
+					if (upperPipe.x < 0) {
+
+
+						upperPipe.x = 538;
+						upperPipe.y = 0;
+						upperPipe.w = 40;
+						downPipe.x = 538;
+						downPipe.w = 40;
+
+
+						upperPipe.h = 1 + (rand() % static_cast<int>(330 - 1 + 1));
+						downPipe.y = upperPipe.h + 150;
+						downPipe.h = 480 - downPipe.y;
+
+					}
+					upperPipe.x -= 3;
+					downPipe.x -= 3;
 
 					if (bird.mPosY > 480) {
 						gameOver = true;
@@ -285,13 +337,13 @@ int main(int argc, char* args[])
 					//mCollider.y = mPosY;
 
 					//If the Bird collided or went too far up or down
-					if (checkCollision(bird.mCollider, wall1))
+					if (checkCollision(bird.mCollider, upperPipe))
 					{
 						/*	mPosY -= mVelY;
 						mCollider.y = mPosY;*/
 						gameOver = true;
 					}
-					if (checkCollision(bird.mCollider, wall2))
+					if (checkCollision(bird.mCollider, downPipe))
 					{
 						/*	mPosY -= mVelY;
 						mCollider.y = mPosY;*/
@@ -305,10 +357,11 @@ int main(int argc, char* args[])
 					gbirdTexture.free();
 					board.free();
 					endgame.render(0, 0, NULL, NULL,NULL, gRenderer);
-					wall1.w = 0;
-					wall1.h = 0;
-					wall2.w = 0;
-					wall2.h = 0;
+					upperPipe.w = 0;
+					upperPipe.h = 0;
+					downPipe.w = 0;
+					downPipe.h = 0;
+					upperPipe.x = -1;
 					if (e.type == SDL_KEYDOWN)
 					{
 						//Adjust the velocity
@@ -318,15 +371,6 @@ int main(int argc, char* args[])
 							gameOver = false;
 							endgame.free();
 							bird.reset();
-							wall1.x = 538;
-							wall1.y = 0;
-							wall1.w = 40;
-							wall1.h = 200;
-
-							wall2.x = 538;
-							wall2.y = 350;
-							wall2.w = 40;
-							wall2.h = 200;
 							gameReset = true;
 							loadMedia();
 							break;
@@ -340,12 +384,17 @@ int main(int argc, char* args[])
 				SDL_SetRenderDrawColor(gRenderer, 113, 54, 26, 0xFF);
 				//Render bird
 				board.render(0, 0, NULL, NULL, NULL, gRenderer);
-				SDL_RenderDrawRect(gRenderer, &wall1);
-				SDL_RenderDrawRect(gRenderer, &wall2);
+				SDL_RenderDrawRect(gRenderer, &upperPipe);
+				SDL_RenderDrawRect(gRenderer, &downPipe);
 
+				if (bird.mPosY < 0) {
+					bird.mPosY = 0;
+					bird.mCollider.y = 0;
+					bird.mVelY = 0;
+				}
 				gbirdTexture.render(bird.mPosX, bird.mPosY, NULL, NULL, NULL, gRenderer);
-				SDL_RenderFillRect(gRenderer, &wall1);
-				SDL_RenderFillRect(gRenderer, &wall2);
+				SDL_RenderFillRect(gRenderer, &upperPipe);
+				SDL_RenderFillRect(gRenderer, &downPipe);
 
 
 				//Update screen

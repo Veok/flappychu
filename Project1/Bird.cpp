@@ -70,10 +70,10 @@ void Bird::move(SDL_Rect& wall, SDL_Rect& wall2, bool gameOver, bool gameReset)
 
 
 
-	if (mPosY < 0) {
-		mPosY = 0;
-		mCollider.y = 0;
-	}
+	//if (mPosY < 0) {
+	//	mPosY = 0;
+	//	mCollider.y = 0;
+	//}
 	mPosY += 8;
 	mPosY += mVelY;
 	mCollider.y = mPosY;
