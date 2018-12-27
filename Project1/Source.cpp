@@ -22,7 +22,7 @@ bool loadMedia();
 void close();
 
 //Box collision detector
-bool checkCollision(SDL_Rect a, SDL_Rect b);
+bool checkCollision(SDL_Rect bird, SDL_Rect pipe);
 
 
 #ifdef _SDL_TTF_H
@@ -109,8 +109,7 @@ bool init()
 bool LTexture::loadFromRenderedText(std::string textureText, SDL_Color textColor, SDL_Renderer* gRenderer)
 {
 	//Get rid of preexisting texture
-	free();
-
+	//free();
 	//Render text surface
 	SDL_Surface* textSurface = TTF_RenderText_Solid(gFont, textureText.c_str(), textColor);
 	if (textSurface != NULL)
@@ -135,7 +134,6 @@ bool LTexture::loadFromRenderedText(std::string textureText, SDL_Color textColor
 	{
 		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
 	}
-
 
 	//Return success
 	return mTexture != NULL;
@@ -189,6 +187,8 @@ void close()
 {
 	//Free loaded images
 	gbirdTexture.free();
+	endgame.free();
+	board.free();
 
 	//Destroy window	
 	SDL_DestroyRenderer(gRenderer);
@@ -201,49 +201,21 @@ void close()
 	SDL_Quit();
 }
 
-bool checkCollision(SDL_Rect a, SDL_Rect b)
+bool checkCollision(SDL_Rect bird, SDL_Rect pipe)
 {
-	//The sides of the rectangles
-	int leftA, leftB;
-	int rightA, rightB;
-	int topA, topB;
-	int bottomA, bottomB;
+	int leftBirdSide = bird.x;
+	int rightBirdSide = bird.x + bird.w;
+	int topBirdSide = bird.y;
+	int bottomBirdSide = bird.y + bird.h;
+	int	leftPipeSide = pipe.x;
+	int rightPipeSide = pipe.x + pipe.w;
+	int	topPipeSide = pipe.y;
+	int bottomPipeSide = pipe.y + pipe.h;
 
-	//Calculate the sides of rect A
-	leftA = a.x;
-	rightA = a.x + a.w;
-	topA = a.y;
-	bottomA = a.y + a.h;
-
-	//Calculate the sides of rect B
-	leftB = b.x;
-	rightB = b.x + b.w;
-	topB = b.y;
-	bottomB = b.y + b.h;
-
-	//If any of the sides from A are outside of B
-	if (bottomA <= topB)
-	{
-		return false;
-	}
-
-	if (topA >= bottomB)
-	{
-		return false;
-	}
-
-	if (rightA <= leftB)
-	{
-		return false;
-	}
-
-	if (leftA >= rightB)
-	{
-		return false;
-	}
-
-	//If none of the sides from A are outside B
-	return true;
+	return !(bottomBirdSide <= topPipeSide
+		|| topBirdSide >= bottomPipeSide
+		|| rightBirdSide <= leftPipeSide
+		|| leftBirdSide >= rightPipeSide);
 }
 
 
@@ -342,7 +314,6 @@ int main(int argc, char* args[])
 						gameOver = true;
 					}
 
-
 				}
 				//If end game clear texture and show GameOver
 				if (gameOver) {
@@ -356,18 +327,13 @@ int main(int argc, char* args[])
 					downPipe.h = 0;
 					upperPipe.x = -1;
 
-				
-
-					//Render current frame
 					gTextTexture.render((SCREEN_WIDTH - gTextTexture.getWidth()) / 2, (SCREEN_HEIGHT - gTextTexture.getHeight()) / 2);
 
 					//Update screen
 					SDL_RenderPresent(gRenderer);
 
-
 					if (e.type == SDL_KEYDOWN)
 					{
-						//Adjust the velocity
 						switch (e.key.keysym.sym)
 						{
 						case SDLK_RETURN:
@@ -377,19 +343,17 @@ int main(int argc, char* args[])
 							gameReset = true;
 							loadMedia();
 							break;
-
 						}
 					}
 				}
 
 				//Render wall
-
 				SDL_SetRenderDrawColor(gRenderer, 113, 54, 26, 0xFF);
 				//Render bird
 				board.render(0, 0, NULL, NULL, NULL, gRenderer);
 				SDL_RenderDrawRect(gRenderer, &upperPipe);
 				SDL_RenderDrawRect(gRenderer, &downPipe);
-
+				//If Bird Y position is above screen move bird to 0 point
 				if (bird.mPosY < 0) {
 					bird.mPosY = 0;
 					bird.mCollider.y = 0;
@@ -398,7 +362,6 @@ int main(int argc, char* args[])
 				gbirdTexture.render(bird.mPosX, bird.mPosY, NULL, NULL, NULL, gRenderer);
 				SDL_RenderFillRect(gRenderer, &upperPipe);
 				SDL_RenderFillRect(gRenderer, &downPipe);
-
 
 				//Update screen
 				SDL_RenderPresent(gRenderer);

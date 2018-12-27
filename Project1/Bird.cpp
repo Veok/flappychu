@@ -22,7 +22,7 @@ void Bird::handleEvent(SDL_Event& e)
 	//If a key was pressed
 	if (e.type == SDL_KEYDOWN)
 	{
-		switch (e.key.keysym.sym) { case SDLK_SPACE: mPosY -= 120; break; }
+		switch (e.key.keysym.sym) { case SDLK_SPACE: mPosY -= 110; break; }
 	}
 }
 void Bird::reset() {
