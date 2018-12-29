@@ -33,7 +33,6 @@ bool loadFromRenderedText(std::string textureText, SDL_Color textColor);
 
 bool gameOver = false;
 bool gameReset = false;
-int pipeCounter = 0;
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
@@ -156,7 +155,7 @@ bool loadMedia()
 		success = false;
 	}
 
-	if (!gbirdTexture.loadFromFile("imgs/birdchu.bmp", gRenderer))
+	if (!gbirdTexture.loadFromFile("imgs/birdchu2.png", gRenderer))
 	{
 		printf("Failed to load bird texture!\n");
 		success = false;
@@ -169,16 +168,7 @@ bool loadMedia()
 		printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
 		success = false;
 	}
-	else
-	{
-		//Render text
-		SDL_Color textColor = { 100, 25, 100 };
-		if (!gTextTexture.loadFromRenderedText("The quick brown fox jumps over the lazy dog", textColor, gRenderer))
-		{
-			printf("Failed to render text texture!\n");
-			success = false;
-		}
-	}
+
 
 	return success;
 }
@@ -246,17 +236,18 @@ int main(int argc, char* args[])
 
 			SDL_Rect upperPipe;
 			SDL_Rect downPipe;
-
-			upperPipe.x = 538;
+			//Init pipes
+			upperPipe.x = 0;
 			upperPipe.y = 0;
-			upperPipe.w = 60;
-			upperPipe.h = 200;
+			upperPipe.w = 0;
+			upperPipe.h = 0;
 
-			downPipe.x = 538;
-			downPipe.y = 350;
-			downPipe.w = 60;
-			downPipe.h = 130;
-
+			downPipe.x = 0;
+			downPipe.y = 0;
+			downPipe.w = 0;
+			downPipe.h = 0;
+			int pipeCounter = 1;
+			bool canCount = true;
 			//While application is running
 			while (!quit)
 			{
@@ -270,11 +261,20 @@ int main(int argc, char* args[])
 					}
 					//Handle input for the bird
 					bird.handleEvent(e);
+
 				}
 
 				if (!gameOver) {
 					bird.move();
 
+					if (upperPipe.x < bird.mPosX) {
+						upperPipe.x -= 11;
+						downPipe.x -= 11;
+					}
+					else {
+						upperPipe.x -= 3;
+						downPipe.x -= 3;
+					}
 					if (upperPipe.x < -60) {
 						upperPipe.x = 538;
 						upperPipe.y = 0;
@@ -285,15 +285,12 @@ int main(int argc, char* args[])
 						downPipe.y = upperPipe.h + 180;
 						downPipe.h = 480 - downPipe.y;
 						pipeCounter -= 1;
-
 					}
-					if (pipeCounter % 3 == 0) {
+
+					if (pipeCounter != 0 && pipeCounter % 3 == 0) {
 						upperPipe.x -= 3 - pipeCounter;
 						downPipe.x -= 3 - pipeCounter;
-					}
-					else {
-						upperPipe.x -= 3;
-						downPipe.x -= 3;
+
 					}
 
 					if (bird.mPosY > 480) {
@@ -323,11 +320,18 @@ int main(int argc, char* args[])
 					upperPipe.w = 0;
 					upperPipe.h = 0;
 					downPipe.w = 0;
-					pipeCounter = 0;
 					downPipe.h = 0;
 					upperPipe.x = -1;
 
-					gTextTexture.render((SCREEN_WIDTH - gTextTexture.getWidth()) / 2, (SCREEN_HEIGHT - gTextTexture.getHeight()) / 2);
+					//Render score text
+					SDL_Color textColor = { 100, 25, 100 };
+					if (!gTextTexture.loadFromRenderedText("Your score: " + std::to_string(abs(pipeCounter)), textColor, gRenderer))
+					{
+						printf("Failed to render text texture!\n");
+					}
+
+
+					gTextTexture.render(180, 300, NULL, NULL, NULL, gRenderer);
 
 					//Update screen
 					SDL_RenderPresent(gRenderer);
@@ -337,27 +341,30 @@ int main(int argc, char* args[])
 						switch (e.key.keysym.sym)
 						{
 						case SDLK_RETURN:
+							//Restart game
 							gameOver = false;
 							endgame.free();
 							bird.reset();
+							gTextTexture.free();
 							gameReset = true;
 							loadMedia();
+							pipeCounter = 1;
 							break;
 						}
 					}
 				}
 
-				//Render wall
+				//Render pipe color
 				SDL_SetRenderDrawColor(gRenderer, 113, 54, 26, 0xFF);
-				//Render bird
+				//Render board
 				board.render(0, 0, NULL, NULL, NULL, gRenderer);
+				//Render pipes
 				SDL_RenderDrawRect(gRenderer, &upperPipe);
 				SDL_RenderDrawRect(gRenderer, &downPipe);
 				//If Bird Y position is above screen move bird to 0 point
 				if (bird.mPosY < 0) {
 					bird.mPosY = 0;
 					bird.mCollider.y = 0;
-					bird.mVelY = 0;
 				}
 				gbirdTexture.render(bird.mPosX, bird.mPosY, NULL, NULL, NULL, gRenderer);
 				SDL_RenderFillRect(gRenderer, &upperPipe);

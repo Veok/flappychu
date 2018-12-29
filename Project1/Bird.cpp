@@ -12,9 +12,6 @@ Bird::Bird()
 	mCollider.w = Bird_WIDTH;
 	mCollider.h = Bird_HEIGHT;
 
-	//Initialize the velocity
-	mVelX = 0;
-	mVelY = 0;
 }
 
 void Bird::handleEvent(SDL_Event& e)
@@ -22,7 +19,7 @@ void Bird::handleEvent(SDL_Event& e)
 	//If a key was pressed
 	if (e.type == SDL_KEYDOWN)
 	{
-		switch (e.key.keysym.sym) { case SDLK_SPACE: mPosY -= 110; break; }
+		switch (e.key.keysym.sym) { case SDLK_SPACE: mPosY -= 100; break; }
 	}
 }
 void Bird::reset() {
@@ -30,19 +27,14 @@ void Bird::reset() {
 	mPosY = 240;
 	//Set collision box dimension
 	mCollider.w = Bird_WIDTH;
-	mCollider.h = Bird_HEIGHT;
-
-	//Initialize the velocity
-	mVelX = 0;
-	mVelY = 0;
+	mCollider.h = Bird_HEIGHT;	
 }
 
 
 void Bird::move()
 {
-	mPosY += 8;
+	mPosY += 7;
 	mCollider.y = mPosY;
-	mPosX += mVelX;
 	mCollider.x = mPosX;
 }
 
