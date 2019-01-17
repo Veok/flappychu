@@ -7,6 +7,8 @@
 #include "Bird.h"
 #include "LTexture.h"
 
+//** Based on Tutorials by Lazy Foo' production **//
+
 //Screen dimension constants
 const int SCREEN_WIDTH = 538;
 const int SCREEN_HEIGHT = 480;
@@ -288,7 +290,7 @@ int main(int argc, char* args[])
 					}
 
 					if (pipeCounter != 0 && pipeCounter % 3 == 0) {
-						upperPipe.x -= 3 - pipeCounter;
+ 						upperPipe.x -= 3 - pipeCounter;
 						downPipe.x -= 3 - pipeCounter;
 
 					}
