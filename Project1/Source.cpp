@@ -6,6 +6,7 @@
 #include <sstream>
 #include "Bird.h"
 #include "LTexture.h"
+#include <windows.h>
 
 //** Based on Tutorials by Lazy Foo' production **//
 
@@ -269,6 +270,22 @@ int main(int argc, char* args[])
 				if (!gameOver) {
 					bird.move();
 
+ 					if (e.type == SDL_KEYDOWN)
+					{
+  						switch (e.key.keysym.sym)
+						{
+						case SDLK_RETURN:
+							Sleep(1);
+							int i = 0;
+							while (i < 7)
+							{
+								i++;
+								bird.mPosY -= i;
+								gbirdTexture.render(bird.mPosX, bird.mPosY, NULL, NULL, NULL, gRenderer);
+							}
+							break;
+						}
+					}
 					if (upperPipe.x < bird.mPosX) {
 						upperPipe.x -= 11;
 						downPipe.x -= 11;
@@ -369,6 +386,7 @@ int main(int argc, char* args[])
 					bird.mCollider.y = 0;
 				}
 				gbirdTexture.render(bird.mPosX, bird.mPosY, NULL, NULL, NULL, gRenderer);
+
 				SDL_RenderFillRect(gRenderer, &upperPipe);
 				SDL_RenderFillRect(gRenderer, &downPipe);
 

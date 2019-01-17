@@ -16,20 +16,20 @@ Bird::Bird()
 void Bird::handleEvent(SDL_Event& e)
 {
 	//If a key was pressed
-	if (e.type == SDL_KEYDOWN)
+	/*if (e.type == SDL_KEYDOWN)
 	{
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_SPACE:
 			int i = 0;
 			while (i < 14)
-			{
+			{	
 				i++;
 				mPosY -= i;
 			}
 			break;
 		}
-	}
+	}*/
 }
 
 void Bird::reset()
